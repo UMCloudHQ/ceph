@@ -13,7 +13,7 @@ class TestNeedsRoot(object):
 
     def test_is_not_root(self, monkeypatch):
         def func():
-            return True
+            return True # pragma: no cover
         monkeypatch.setattr(decorators.os, 'getuid', lambda: 20)
         with pytest.raises(exceptions.SuperUserError) as error:
             decorators.needs_root(func)()
