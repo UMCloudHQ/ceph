@@ -573,7 +573,9 @@ if(HAVE_INTEL)
   endif(HAVE_GOOD_YASM_ELF64)
 elseif(HAVE_POWER8)
   list(APPEND libcommon_files
-    common/crc32c_ppc.c
+    common/crc32c_ppc.c)
+elseif(HAVE_PPC64LE)
+  list(APPEND libcommon_files
     common/crc32c_ppc_asm.S
     common/crc32c_ppc_fast_zero_asm.S)
 endif(HAVE_INTEL)
